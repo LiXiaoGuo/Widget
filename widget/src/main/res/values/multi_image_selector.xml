@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folder_all">全部图片</string>
+    <string name="preview">Preview</string>
+    <string name="msg_no_camera">没有找到系统摄像头</string>
+    <string name="msg_amount_limit">选择图像的数量是限制的</string>
+
+
+
+
+    <dimen name="folder_cover_size">72dp</dimen>
+    <dimen name="space_size">5dp</dimen>
+
+
+    <color name="praiseInSide">#f39725</color>
+    <color name="praiseOutSide">#fdead8</color>
+    <color name="praiseInSidePressed">#a0a0a0</color>
+    <color name="praiseOutSidePressed">#e0e0e0</color>
+    <color name="black">#000000</color>
+    <color name="mainColor">#B13325</color>
+</resources>
