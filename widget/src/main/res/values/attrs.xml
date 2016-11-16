@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color" />
+        <attr name="border_outside_padding" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="arcImagView">
+        <attr name="arc_rectAdius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SwitchView">
+        <attr name="selectBackgroundColor" format="reference|color"/>
+        <attr name="unselectBackgroundColor" format="reference|color"/>
+        <attr name="unselectBorderColor" format="reference|color"/>
+        <attr name="circleBackgroundColor" format="reference|color"/>
+        <attr name="isOpen" format="boolean"/>
+    </declare-styleable>
+
+</resources>
