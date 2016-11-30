@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.liguo.interfaces.LogUtil;
+import com.liguo.util.L;
 
 import java.util.List;
 
@@ -18,9 +19,6 @@ import rx.Subscription;
 
 
 public abstract class BaseFragment extends Fragment implements LogUtil {
-    public boolean DEBUG = true;
-
-    private String TAG = "BaseFragment";
     public View view;
     private Unbinder unbinder;
     public Subscription rxSubscription;
@@ -36,7 +34,6 @@ public abstract class BaseFragment extends Fragment implements LogUtil {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = config(inflater, container, savedInstanceState);
-        TAG = getClass().getName();
         unbinder = ButterKnife.bind(this, view);
         initView( inflater,  container,  savedInstanceState);
         initData();
@@ -106,29 +103,21 @@ public abstract class BaseFragment extends Fragment implements LogUtil {
 
     @Override
     public void debug(String msg) {
-        if(DEBUG){
-            Log.d(TAG, msg);
-        }
+        L.debug(getClass(),msg);
     }
 
     @Override
     public void info(String msg) {
-        if(DEBUG){
-            Log.i(TAG, msg);
-        }
+        L.info(getClass(),msg);
     }
 
     @Override
     public void error(String msg) {
-        if(DEBUG){
-            Log.e(TAG, msg);
-        }
+        L.error(getClass(),msg);
     }
 
     @Override
     public void warn(String msg) {
-        if(DEBUG){
-            Log.w(TAG, msg);
-        }
+        L.warn(getClass(),msg);
     }
 }

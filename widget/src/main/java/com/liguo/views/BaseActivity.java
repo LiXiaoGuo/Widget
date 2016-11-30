@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import com.liguo.application.AppManager;
 import com.liguo.application.BaseApplication;
 import com.liguo.interfaces.LogUtil;
+import com.liguo.util.L;
+import com.liguo.util.Util;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -21,19 +23,13 @@ import rx.Subscription;
  * Created by Extends on 2016/2/22 0022.
  */
 public abstract class BaseActivity extends FragmentActivity implements LogUtil {
-    public boolean DEBUG = true;
     public Subscription rxSubscription;
-    private String TAG = "BaseActivity";
-    private static final int INVALID_VAL = -2;
-    private static final int COLOR_DEFAULT = Color.parseColor("#06c1ae");
-//    private static final int COLOR_DEFAULT = Color.parseColor("#00000000");
     private View statusBarView;
     private Unbinder unbinder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         config(savedInstanceState);
-        TAG = getClass().getName();
         ViewGroup contentView = (ViewGroup) this.findViewById(android.R.id.content);
         statusBarView = new View(this);
 
@@ -78,47 +74,33 @@ public abstract class BaseActivity extends FragmentActivity implements LogUtil {
      */
     public void compat(int statusColor)
     {
-        int color = COLOR_DEFAULT;
-        if (statusColor != INVALID_VAL)
-        {
-            color = statusColor;
-        }
-        statusBarView.setBackgroundColor(color);
-
+        statusBarView.setBackgroundColor(statusColor);
     }
     /**
      * 更改状态栏颜色
      */
     public void compat()
     {
-        compat(INVALID_VAL);
+        compat(Util.COLOR_DEFAULT);
     }
 
     @Override
     public void debug(String msg) {
-        if(DEBUG){
-            Log.d(TAG, msg);
-        }
+        L.debug(getClass(),msg);
     }
 
     @Override
     public void info(String msg) {
-        if(DEBUG){
-            Log.i(TAG, msg);
-        }
+        L.info(getClass(),msg);
     }
 
     @Override
     public void error(String msg) {
-        if(DEBUG){
-            Log.e(TAG, msg);
-        }
+        L.error(getClass(),msg);
     }
 
     @Override
     public void warn(String msg) {
-        if(DEBUG){
-            Log.w(TAG, msg);
-        }
+        L.warn(getClass(),msg);
     }
 }

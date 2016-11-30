@@ -14,6 +14,7 @@ import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -102,6 +103,7 @@ public class Util {
     public static String SP_NAME = "Extends";//默认的SharedPreferences的文件名
     public static int PLACEHOLDER = 0;//占位图
     public static int ERROR = 0;//错误图
+    public static int COLOR_DEFAULT = Color.parseColor("#00000000");
     //使用前必须配置 -----end
 
 
