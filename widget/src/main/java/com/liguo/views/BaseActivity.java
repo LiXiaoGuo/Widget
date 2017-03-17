@@ -3,6 +3,7 @@ package com.liguo.views;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,8 @@ public abstract class BaseActivity extends FragmentActivity implements LogUtil {
     public Subscription rxSubscription;
     private View statusBarView;
     private Unbinder unbinder;
+    private static final int INVALID_VAL = -2;
+    private static final int COLOR_DEFAULT = Color.parseColor("#003c474c");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,17 +59,19 @@ public abstract class BaseActivity extends FragmentActivity implements LogUtil {
     /**
      * 配置信息，如setContentView方法可以写在这里
      */
-    protected abstract void config(Bundle savedInstanceState);
+    protected abstract void config(@Nullable Bundle savedInstanceState);
 
     /**
      * 初始化控件
      */
-    protected abstract void initView(Bundle savedInstanceState);
+    protected abstract void initView(@Nullable Bundle savedInstanceState);
 
     /**
      * 初始化数据
      */
     protected abstract void initData();
+
+
 
     /**
      * 更改状态栏颜色

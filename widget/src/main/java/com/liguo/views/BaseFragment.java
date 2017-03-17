@@ -50,12 +50,12 @@ public abstract class BaseFragment extends Fragment implements LogUtil {
     /**
      * 配置信息，如setContentView方法可以写在这里
      */
-    protected abstract View config(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+    protected abstract View config(LayoutInflater inflater, ViewGroup container, @Nullable Bundle savedInstanceState);
 
     /**
      * 初始化控件
      */
-    protected abstract void initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+    protected abstract void initView(LayoutInflater inflater, ViewGroup container, @Nullable Bundle savedInstanceState);
 
     /**
      * 初始化数据

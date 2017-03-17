@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.StringTokenizer;
@@ -147,6 +148,35 @@ public class FileUtil {
             myFile.println(strContent);
             myFile.close();
             resultFile.close();
+        } catch (Exception e) {
+            message = "创建文件操作出错";
+        }
+    }
+
+    /**
+     * 新建文件
+     *
+     * @param filePathAndName 文本文件完整绝对路径及文件名
+     * @param ins     文本文件内容
+     * @return
+     */
+    public static void createFile(String filePathAndName, InputStream ins) {
+        try {
+            String filePath = filePathAndName;
+            filePath = filePath.toString();
+            File myFilePath = new File(filePath);
+            if (!myFilePath.exists()) {
+                myFilePath.createNewFile();
+            }
+
+            OutputStream os = new FileOutputStream(myFilePath);
+            int bytesRead = 0;
+            byte[] buffer = new byte[1024];
+            while ((bytesRead = ins.read(buffer, 0, 1024)) != -1) {
+                os.write(buffer, 0, bytesRead);
+            }
+            os.close();
+            ins.close();
         } catch (Exception e) {
             message = "创建文件操作出错";
         }
@@ -520,7 +550,5 @@ public class FileUtil {
         }
         return fileSizeLong;
     }
-
-
 }
 

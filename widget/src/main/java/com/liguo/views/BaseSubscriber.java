@@ -37,7 +37,7 @@ public abstract class BaseSubscriber<T> extends Subscriber<T> {
 
     @Override
     public void onError(Throwable e) {
-        if(e!=null){
+        if(e!=null&&e.getMessage()!=null){
             Util.showToast(e.getMessage());
             Log.e("onError",e.getMessage());
         }
